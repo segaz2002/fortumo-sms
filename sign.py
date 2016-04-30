@@ -18,9 +18,7 @@ class SignParser:
            (621, 'gemini'), (722, 'cancer'), (823, 'leo'), (923, 'virgo'), (1023, 'libra'),
            (1122, 'scorpio'), (1222, 'sagittarius'), (1231, 'capricorn')]
 
-    #endpoint = 'http://horoscope-api.herokuapp.com/horoscope/week/'
-    #18-02-1988 --->int(02) = 2   ->  <=218
-    #DD-MM-YYYY
+
     @staticmethod
     def isDob(str):
         if str[3] == '-' and str[6] == '-':
@@ -46,7 +44,7 @@ class SignParser:
     #18-02-1988
     def getSignFromDob(self,dob):
         ds = dob.split('-')
-        date_number = ds[1]+ds[0]    #int("".join((str(date.date().month), '%02d' % date.date().day)))
+        date_number = ds[1]+ds[0]
         for z in self.zodiacs:
             if int(date_number) <= z[0]:
                 return z[1]
