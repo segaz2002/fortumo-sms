@@ -28,7 +28,7 @@ class Horoscope(Resource):
         elif sp.isSign(msg):
             weekDetails = dict(sp.weekHoroscope(msg))
         else:
-            return jsonify(message = 'Invalid keyword, message should be in the format HSP 18-02-1988 or HSP leo')
+            return 'INVALID Sign or Date of Birth, message should be in the format HSP 18-02-1988 or HSP leo'
 
         return weekDetails['horoscope']
          #jsonify(#week=weekDetails['week'],
