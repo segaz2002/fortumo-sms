@@ -1,6 +1,6 @@
 __author__ = 'gabriel'
 
-from flask import Flask,jsonify
+from flask import Flask,jsonify,request
 from flask_restful import Resource, Api
 from sign import SignParser
 
@@ -8,8 +8,13 @@ app = Flask(__name__)
 api = Api(app)
 sp = SignParser()
 
+
 class Horoscope(Resource):
-    def get(self,msg):
+    def get(self):
+        args = request.args
+        #print(args)
+        msg =  args['message']
+
         if(SignParser.isValidDob(msg)):
             weekDetails = dict(sp.weekHoroscope(sp.getSignFromDob(msg)))
             #return jsonify(message = weekDetails['horoscope'])
@@ -22,7 +27,8 @@ class Horoscope(Resource):
                    sunsign=weekDetails['sunsign'],
                    horoscope=weekDetails['horoscope'])
 
-api.add_resource(Horoscope, '/<string:msg>')
+#api.add_resource(Horoscope, '/<string:message>')
+api.add_resource(Horoscope, '/')
 
 if __name__ == '__main__':
     app.run(debug=True)
