@@ -9,10 +9,11 @@ This is deployed to Heroku.
 
 ##### Usage
 ------------
-1. https://fortumo.herokuapp.com/?message=dd-mm-yyyy
-* https://fortumo.herokuapp.com/?message=06-06-1992
-2. https://fortumo.herokuapp.com/?message=sign
-* https://fortumo.herokuapp.com/?message=leo
+* https://fortumo.herokuapp.com/?message=dd-mm-yyyy
+...https://fortumo.herokuapp.com/?message=06-06-1992
+or
+* https://fortumo.herokuapp.com/?message=sign
+...https://fortumo.herokuapp.com/?message=leo
 
 It can be extended to react to the entire payload of the request, something like
 * https://fortumo.herokuapp.com/?billing_type=MO&country=NG&currency=NGN&keyword=TXT+HSP&message=aquarius&
