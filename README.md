@@ -12,6 +12,7 @@ This is deployed to Heroku.
 * https://fortumo.herokuapp.com/?message=06-06-1992
 * or
 * https://fortumo.herokuapp.com/?message=leo
+
 Either a valid date of birth in the format dd-mm-yyyy can be specified or specify explicitly the sign.
 
 It can be extended to react to the entire payload of the request, something like
