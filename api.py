@@ -8,6 +8,13 @@ app = Flask(__name__)
 api = Api(app)
 sp = SignParser()
 
+'''
+Request Anatomy
+---------------
+"/?billing_type=MO&country=NG&currency=NGN&keyword=TXT+HSP&message=aquarius&message_id=67b1aa64cc6b317fa65547ca42918827&
+operator=Starcomms&price=30.0&price_wo_vat=28.57&sender=56349893&service_id=977d623be8c913b4863c33a410abfd5a&shortcode=32120
+&sig=e26a8b883036c943f2715279792baeef&status=pending&test=true"
+'''
 
 class Horoscope(Resource):
     def get(self):
