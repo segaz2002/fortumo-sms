@@ -26,7 +26,7 @@ class Horoscope(Resource):
         elif sp.isSign(msg):
             weekDetails = dict(sp.weekHoroscope(msg))
         else:
-            return 'INVALID Sign or Date of Birth, message should be in the format HSP 18-02-1988 or HSP leo',500
+            return 'INVALID Sign or Date of Birth, message should be in the format HSP 18-02-1988 or HSP leo'
 
         return weekDetails['horoscope']
 
