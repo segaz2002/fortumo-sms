@@ -7,13 +7,6 @@ import datetime
 class SignParser:
 
     def __init__(self):
-        self.sunsigns = [
-            'aquarius','pisces','aries',
-            'taurus','gemini','cancer',
-            'leo','virgo','libra',
-            'scorpio','sagittarius','capricorn'
-        ]
-
         self.zodiacs = [(120, 'capricorn'), (218, 'aquarius'), (320, 'pisces'), (420, 'aries'), (521, 'taurus'),
            (621, 'gemini'), (722, 'cancer'), (823, 'leo'), (923, 'virgo'), (1023, 'libra'),
            (1122, 'scorpio'), (1222, 'sagittarius'), (1231, 'capricorn')]
@@ -32,16 +25,16 @@ class SignParser:
             datetime.datetime.strptime(date_string, '%d-%m-%Y')
             return True
         except ValueError:
-            #raise ValueError("Incorrect data format, should be MM-DD-YYYY")
             return False
 
-    def isSign(self,str):
-        if str in self.sunsigns :
-            return True
+    def isSign(self,sign):
+        for z in self.zodiacs:
+            if sign == z[1]:
+                return True
 
         return False
 
-    #18-02-1988
+    #18-02-1988 - preferred date format
     def getSignFromDob(self,dob):
         ds = dob.split('-')
         date_number = ds[1]+ds[0]

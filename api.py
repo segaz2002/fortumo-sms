@@ -18,9 +18,7 @@ operator=Starcomms&price=30.0&price_wo_vat=28.57&sender=56349893&service_id=977d
 
 class Horoscope(Resource):
     def get(self):
-        args = request.args
-        #print(args)
-        msg =  args['message']
+        msg = request.args['message']
 
         if(SignParser.isValidDob(msg)):
             weekDetails = dict(sp.weekHoroscope(sp.getSignFromDob(msg)))
@@ -28,14 +26,10 @@ class Horoscope(Resource):
         elif sp.isSign(msg):
             weekDetails = dict(sp.weekHoroscope(msg))
         else:
-            return 'INVALID Sign or Date of Birth, message should be in the format HSP 18-02-1988 or HSP leo'
+            return 'INVALID Sign or Date of Birth, message should be in the format HSP 18-02-1988 or HSP leo',500
 
         return weekDetails['horoscope']
-         #jsonify(#week=weekDetails['week'],
-                   #sunsign=weekDetails['sunsign'],
-                   #horoscope=weekDetails['horoscope'])
 
-#api.add_resource(Horoscope, '/<string:message>')
 api.add_resource(Horoscope, '/')
 
 if __name__ == '__main__':
