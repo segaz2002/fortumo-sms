@@ -1,7 +1,7 @@
 __author__ = 'gabriel'
 
-import requests
-from horoscope import Horoscope
+
+from pyhoroscopes import Horoscope
 import datetime
 
 class SignParser:
